@@ -3,10 +3,10 @@
 using namespace std;
 void swap(int *a, int x, int y)
 {
-	int tmp;
-	tmp = a[x];
-	a[x] = a[y];
-	a[y] = tmp;
+	
+	a[x] = a[x] + a[y];
+	a[y] = a[x] - a[y];
+	a[x] = a[x] - a[y];
 }
 void MAX_HEAPIFY(int *a,int i,int n)
 {
