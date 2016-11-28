@@ -1,21 +1,30 @@
 #include <stdio.h>
-void qsort(int *a, int left, int right)
+#include <stdlib.h>
+#include <time.h>
+
+void QSORT(int *a, int left, int right)
 {
-	int i = left, j = left, k = right, temp = a[right], tmp;
+	srand(time(NULL));
+	int i = left, j = left, k = right, tmp,
+		s = (rand() % (k - j + 1)) + j;
+	tmp = a[k];
+	a[k] = a[s];
+	a[s] = tmp;
+	int temp = a[k];
 	for (j; j < k; j++)
 	{
 		if (a[j] <= temp)
 		{
-			tmp = a[j];
-			a[j] = a[i];
-			a[i] = tmp;
+			tmp = a[i];
+			a[i] = a[j];
+			a[j] = tmp;
 			i++;
 		}
 	}
 	a[right] = a[i];
 	a[i] = temp;
-	if (left < i - 1)qsort(a, left, i - 1);
-	if (i + 1 < right)qsort(a, i + 1, right);
+	if (left < i - 1)QSORT(a, left, i - 1);
+	if (i + 1 < right)QSORT(a, i + 1, right);
 }
 int main()
 {
@@ -24,7 +33,7 @@ int main()
 	scanf("%d", &n);
 	for (i = 1; i <= n; i++)
 		scanf("%d", &a[i]);
-	qsort(a, 1, n);
+	QSORT(a, 1, n);
 	for (i = 1; i <= n; i++)
 		printf("%d ", a[i]);
 	return 0;
