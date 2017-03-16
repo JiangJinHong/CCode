@@ -29,7 +29,7 @@ void QSORT(int *a, int left, int right)
 int main()
 {
 	int n, i;
-	int a[1000];
+	int a[100001];
 	scanf("%d", &n);
 	for (i = 1; i <= n; i++)
 		scanf("%d", &a[i]);
