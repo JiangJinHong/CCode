@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cstring>
+//#define Debug
+
 using namespace std;
 void NEXT(char x[],int Ipre[]);
 int max(int a, int b);
@@ -9,8 +11,12 @@ int main()
 	int Ipre[1000];
 	cin >> a >> b;
 	NEXT(b,Ipre);
-	//for (int i = 0; i <= strlen(b)-1; ++i)
-		//cout << Ipre[i];
+
+#ifdef Debug
+	for (int i = 0; i <= strlen(b)-1; ++i)
+		cout << Ipre[i];
+	cout << endl;
+#endif
 	int k = 0;
 	for(int i=0;i<=strlen(a)-strlen(b);)
 		for (int j = 0; j <= strlen(b) - 1; ++j)
@@ -36,8 +42,7 @@ void NEXT(char x[],int Ipre[])
 			k = Ipre[k - 1];     
 		if (x[i] == x[k])
 			Ipre[i] = k + 1;
-		else
-			Ipre[i] = 0;       
+		else Ipre[i] = 0;       
 	}
 
 }
