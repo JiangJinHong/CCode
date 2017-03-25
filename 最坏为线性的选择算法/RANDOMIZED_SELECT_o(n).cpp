@@ -30,7 +30,7 @@ int main()
 	cout << a[n2];*/
 }
 
-void Swap(int &x, int &y)//-----------½»»»
+inline void Swap(int &x, int &y)//-----------½»»»
 {
 	int temp = x;
 	x = y;
