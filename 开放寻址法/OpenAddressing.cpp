@@ -5,14 +5,14 @@ using namespace std;
 //除法散列法  
 int h1(int k,int m)  
 {  
-        return k%m;   
+	return k%m;
 }  
 //乘法散列法  
 int h2(int k,int m,float A)  
 {  
-        float fnum=(float)k;  
-        float re=((fnum*A)-(int)(fnum*A))*m;  
-        return (int)re;  
+	float fnum = (float)k;
+		float re = ((fnum*A) - (int)(fnum*A))*m;
+		return (int)re;
 }  
 //全域散列法,p为质数  
 int h3(int k,int p,int m)  
@@ -20,24 +20,24 @@ int h3(int k,int p,int m)
     int a,b;  
     a=11;  
     b=13;  
-    return ((a*k+b)%p)%m;  
+	return ((a*k + b) % p) % m;
 }  
 //线性探查  
 int LinerProbing(int k,int m,int i)  
 {  
-    return (h1(k,m)+i)%m;  
+	return (h1(k, m) + i) % m;
 }  
 //二次探查  
 int QuadraticProbing(int k,int m,int i)  
 {  
-    int c1=17,c2=67;  
+	int c1 = 17, c2 = 67;
   
-    return (h1(k,m)+c1*i+c2*i*i)%m;  
+	return (h1(k, m) + c1*i + c2*i*i) % m;
 }  
 //双重探查  
 int DoublefunProbing(int k,int m,int i)  
 {  
-    return (h3(k,17,m)+i*h1(k,m))%m;  
+	return (h3(k, 17, m) + i*h1(k, m)) % m;
 }  
 //插入值为k的元素到具有m个槽的T中  
 int Insert(int *T,int k,int m)  
